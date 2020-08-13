@@ -1,1 +1,1 @@
-# EssentialDSALGO
+# Blind 75 Essentials
