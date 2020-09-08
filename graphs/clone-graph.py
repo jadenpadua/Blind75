@@ -14,7 +14,6 @@ class Solution:
         d = {node : Node(node.val)}
         q = deque([node])
         while q:
-             for i in range(len(q)):
                     currNode = q.popleft()
                     for nei in currNode.neighbors:
                         if nei not in d:
