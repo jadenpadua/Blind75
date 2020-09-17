@@ -4,17 +4,20 @@ class Solution:
         left = 0
         right = len(nums) - 1
 
+        leftSum = nums[0]
+        rightSum = nums[len(nums)-1]
+        
         while left < right:
             
-            if sum(nums[right:]) == sum(nums[:left+1]):
-                
-                return [nums[right:], nums[:left+1]]
+            if leftSum == rightSum:
+                break
             
-            elif sum(nums[right:]) > sum(nums[:left+1]):
-                
+            elif rightSum > leftSum:
+                leftSum += nums[left]
                 left += 1
             
             else:
+                rightSum += nums[right]
                 right -= 1
-                
-        return -1        
+        
+        print([nums[right:], nums[:left+1]])
