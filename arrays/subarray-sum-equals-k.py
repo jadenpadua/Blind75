@@ -1,3 +1,5 @@
+# [3,4,7,2,-3,1,4,2]
+
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
         
