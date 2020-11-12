@@ -6,7 +6,7 @@ class Solution:
         maxArea = float("-inf")
         
         while left < right:
-            minHeight = min(height[left],height[right]) 
+            minHeight = min(height[left], height[right])
             maxArea = max(maxArea, minHeight * (right - left))
             
             if height[right] > height[left]:
@@ -14,5 +14,5 @@ class Solution:
             
             else:
                 right -= 1
-            
+        
         return maxArea
