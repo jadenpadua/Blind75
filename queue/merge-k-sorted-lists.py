@@ -16,17 +16,19 @@ class Solution:
         dummy = ListNode(-1)
         curr = dummy
         
-        # First puts nodes in priority of frst LL nodes in list
+        #put nodes in pq ordered by first LL nodes in the List
         for list_idx, node in enumerate(lists):
             if node is not None:
                 pQueue.put((node.val, list_idx, node))
-                
+        
         while pQueue.qsize() > 0:
             popped = pQueue.get()
             curr.next, list_idx = popped[2], popped[1]
             curr = curr.next
-            # Now reorders priority to the curr.next.val and rearranges the queue that way
-            if curr.next: 
+            
+            #now reorders priority to the curr.next.val and rearranges queue in that way
+            if curr.next:
                 pQueue.put((curr.next.val, list_idx, curr.next))
         
+        return dummy.next
         return dummy.next
