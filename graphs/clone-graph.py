@@ -10,17 +10,17 @@ class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
         
         if not node: return
-         # map original nodes to their clones
-        d = {node : Node(node.val)}
-        q = deque([node])
-        while q:
-                    currNode = q.popleft()
-                    for nei in currNode.neighbors:
-                        if nei not in d:
-                         # store copy of the neighboring node
-                            d[nei] = Node(nei.val)
-                            q.append(nei)
-                     # connect the node copy at hand to its neighboring nodes (also copies) -------- [1]
-                        d[currNode].neighbors.append(d[nei])
-                        
-        return d[node]
+        
+        ht = {node: Node(node.val)}
+        queue = deque([node])
+        
+        while queue:
+            currNode = queue.popleft()
+            for neighbor in currNode.neighbors:
+                if neighbor not in ht:
+                    ht[neighbor] = Node(neighbor.val)
+                    queue.append(neighbor)
+                
+                ht[currNode].neighbors.append(ht[neighbor])
+                
+        return ht[node]
