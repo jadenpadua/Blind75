@@ -1,9 +1,11 @@
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        
         if len(intervals) == 0:
             return []
         
-        intervals = sorted(intervals, key= lambda x: x[0])
+        intervals = sorted(intervals, key=lambda x: x[0])
+        
         res = []
         res.append(intervals[0])
         
@@ -13,5 +15,6 @@ class Solution:
                 last[1] = max(last[1], intervals[i][1])
             else:
                 res.append(intervals[i])
+                
         return res
         
