@@ -8,7 +8,6 @@ public:
             lastIdxs[S[i] - 'a'] =  i;
         }
         
-        
         int i = 0;
         while(i < S.size()) {
             int end = lastIdxs[S[i] - 'a'];
